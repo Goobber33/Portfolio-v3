@@ -1,10 +1,7 @@
-.navLink { /* Non-active state styles if any */
-    display: block;
-    padding: 0.5rem 1rem;
-  }
-  
-  .activeNavLink {
-    background-color: #007bff !important;
-    color: white !important;
-    border-radius: 2rem;
-  }
+.highlight {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  transition: transform 0.4s ease-out;
+  opacity: 0; // Adjust as needed to initially hide or show the highlight
+}
