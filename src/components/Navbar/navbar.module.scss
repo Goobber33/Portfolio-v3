@@ -1,0 +1,10 @@
+.navLink { /* Non-active state styles if any */
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+  
+  .activeNavLink {
+    background-color: #007bff !important;
+    color: white !important;
+    border-radius: 2rem;
+  }

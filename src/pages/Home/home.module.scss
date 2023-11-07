@@ -1,0 +1,23 @@
+.navbar-nav {
+    .nav-item {
+      .nav-link {
+        transition: background-color 0.3s ease;
+        display: inline-block; // Ensures padding affects size for circle background
+        margin: 0 10px; // Adjust as needed for spacing
+
+        &.active {
+          background-color: #007bff !important; // Example color
+          padding: 10px;
+          border-radius: 50%; // Makes the background circular
+
+          // Ensures the text is vertically centered in the circle
+          line-height: normal;
+          height: 40px !important; // Adjust as needed
+          width: 40px !important; // Adjust as needed
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }

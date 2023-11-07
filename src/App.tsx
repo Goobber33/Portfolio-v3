@@ -1,12 +1,16 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import Home from './pages/Home/Home';
+import React, { useState } from 'react';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
+  const [activeLink, setActiveLink] = useState('home');
+
+  const handleNavLinkClick = (link: string) => {
+    setActiveLink(link);
+  };
+
   return (
     <div className="App">
-      <Home />
+      <Navbar activeLink={activeLink} onNavLinkClick={handleNavLinkClick} />
     </div>
   );
 }
