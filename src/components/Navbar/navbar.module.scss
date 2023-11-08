@@ -1,7 +1,22 @@
-.highlight {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 24px;
-  transition: transform 0.4s ease-out;
-  opacity: 0; // Adjust as needed to initially hide or show the highlight
+.navLink {
+    display: block;
+    padding: 0.5rem 1rem; 
+  }
+  
+  .highlight {
+    position: absolute;
+    top: 3%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 24px !important;
+ 
+  }
+
+
+
+  .activeNavLink,
+.activeNavLink:focus { // Add :focus here
+  // Your existing styles for the active link
+  color: white; // Ensure the font color is white
+  outline: none; // Optional: Removes the default focus outline
 }

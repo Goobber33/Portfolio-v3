@@ -12,28 +12,43 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
   const navRef = useRef<HTMLElement>(null);
 
   const updateHighlight = (el: HTMLElement) => {
-    if (navRef.current) {
+    if (navRef.current) { // Check that navRef.current is not null
       const rect = el.getBoundingClientRect();
       const parentRect = navRef.current.getBoundingClientRect();
+      const padding = 20;
+      const highlightWidth = rect.width + padding * 2;
 
       setHighlightStyle({
-        width: `${rect.width}px`,
+        width: `${highlightWidth}px`,
         height: `${rect.height}px`,
-        transform: `translate(${rect.left - parentRect.left}px, ${rect.top - parentRect.top}px)`,
-        transition: 'transform 0.4s ease-out',
-        opacity: 1 // ensure the highlight is visible when updated
+        transform: `translate(${rect.left - parentRect.left - padding}px, ${rect.top - parentRect.top}px)`,
+        transition: 'transform 0.2s ease-out',
+        opacity: 1,
       });
     }
   };
 
+  // Update highlight without transition on mount
   useEffect(() => {
-    if (navRef.current) {
+    if (navRef.current) { // Check that navRef.current is not null
       const activeEl = navRef.current.querySelector(`.${styles.activeNavLink}`);
       if (activeEl) {
-        updateHighlight(activeEl as HTMLElement);
+        const rect = activeEl.getBoundingClientRect();
+        const parentRect = navRef.current.getBoundingClientRect();
+        const padding = 20;
+        const highlightWidth = rect.width + padding * 2;
+
+        // Instantly apply the highlight style without transition on initial load
+        const initialStyle = {
+          width: `${highlightWidth}px`,
+          height: `${rect.height}px`,
+          transform: `translate(${rect.left - parentRect.left - padding}px, ${rect.top - parentRect.top}px)`,
+          opacity: 1
+        };
+        setHighlightStyle(initialStyle);
       }
     }
-  }, [activeLink]);
+  }, []); // Empty dependency array ensures this effect runs once on mount
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
     e.preventDefault();
@@ -53,7 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
           <ul className="navbar-nav">
             <li className="nav-item mx-4">
               <a
-                className={`nav-link fs-3 ${activeLink === 'home' ? styles.activeNavLink : styles.navLink}`}
+                className={`nav-link fs-4 ${activeLink === 'home' ? styles.activeNavLink : styles.navLink}`}
                 href="#home"
                 onClick={(e) => handleClick(e, 'home')}
               >
@@ -62,7 +77,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
             </li>
             <li className="nav-item mx-4">
               <a
-                className={`nav-link fs-3 ${activeLink === 'about' ? styles.activeNavLink : styles.navLink}`}
+                className={`nav-link fs-4 ${activeLink === 'about' ? styles.activeNavLink : styles.navLink}`}
                 href="#about"
                 onClick={(e) => handleClick(e, 'about')}
               >
@@ -71,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
             </li>
             <li className="nav-item mx-4">
               <a
-                className={`nav-link fs-3 ${activeLink === 'projects' ? styles.activeNavLink : styles.navLink}`}
+                className={`nav-link fs-4 ${activeLink === 'projects' ? styles.activeNavLink : styles.navLink}`}
                 href="#projects"
                 onClick={(e) => handleClick(e, 'projects')}
               >
@@ -80,7 +95,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
             </li>
             <li className="nav-item mx-4">
               <a
-                className={`nav-link fs-3 ${activeLink === 'contact' ? styles.activeNavLink : styles.navLink}`}
+                className={`nav-link fs-4 ${activeLink === 'contact' ? styles.activeNavLink : styles.navLink}`}
                 href="#contact"
                 onClick={(e) => handleClick(e, 'contact')}
               >
