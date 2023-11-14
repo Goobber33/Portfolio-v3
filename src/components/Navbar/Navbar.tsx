@@ -9,7 +9,9 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
     const [highlightStyle, setHighlightStyle] = useState<React.CSSProperties>({});
+    const [showNavbar, setShowNavbar] = useState(true);
     const navRef = useRef<HTMLElement>(null);
+    let lastScrollY = window.scrollY;
 
     const updateHighlight = (el: HTMLElement) => {
         if (navRef.current) {
@@ -29,23 +31,25 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
     };
 
     useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            setShowNavbar(currentScrollY < lastScrollY || currentScrollY < 50);
+            lastScrollY = currentScrollY;
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    useEffect(() => {
         if (navRef.current) {
             const activeEl = navRef.current.querySelector(`.${styles.activeNavLink}`);
             if (activeEl) {
-                const rect = activeEl.getBoundingClientRect();
-                const parentRect = navRef.current.getBoundingClientRect();
-                const padding = 20;
-                const highlightWidth = rect.width + padding * 2;
-                const initialStyle = {
-                    width: `${highlightWidth}px`,
-                    height: `${rect.height}px`,
-                    transform: `translate(${rect.left - parentRect.left - padding}px, ${rect.top - parentRect.top}px)`,
-                    opacity: 1
-                };
-                setHighlightStyle(initialStyle);
+                updateHighlight(activeEl as HTMLElement);
             }
         }
-    }, []);
+    }, [activeLink]);
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
         e.preventDefault();
@@ -56,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light" ref={navRef}>
+        <nav className={`navbar navbar-expand-lg navbar-light ${showNavbar ? '' : styles.hideNavbar}`} ref={navRef}>
             <div className="container-fluid">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -64,38 +68,22 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
                 <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item mx-4">
-                            <a
-                                className={`nav-link fs-4 ${activeLink === 'home' ? styles.activeNavLink : styles.navLink}`}
-                                href="#home"
-                                onClick={(e) => handleClick(e, 'home')}
-                            >
+                            <a className={`nav-link fs-4 ${activeLink === 'home' ? styles.activeNavLink : styles.navLink}`} href="#home" onClick={(e) => handleClick(e, 'home')}>
                                 Home
                             </a>
                         </li>
                         <li className="nav-item mx-4">
-                            <a
-                                className={`nav-link fs-4 ${activeLink === 'about' ? styles.activeNavLink : styles.navLink}`}
-                                href="#about"
-                                onClick={(e) => handleClick(e, 'about')}
-                            >
+                            <a className={`nav-link fs-4 ${activeLink === 'about' ? styles.activeNavLink : styles.navLink}`} href="#about" onClick={(e) => handleClick(e, 'about')}>
                                 About
                             </a>
                         </li>
                         <li className="nav-item mx-4">
-                            <a
-                                className={`nav-link fs-4 ${activeLink === 'projects' ? styles.activeNavLink : styles.navLink}`}
-                                href="#projects"
-                                onClick={(e) => handleClick(e, 'projects')}
-                            >
+                            <a className={`nav-link fs-4 ${activeLink === 'projects' ? styles.activeNavLink : styles.navLink}`} href="#projects" onClick={(e) => handleClick(e, 'projects')}>
                                 Projects
                             </a>
                         </li>
                         <li className="nav-item mx-4">
-                            <a
-                                className={`nav-link fs-4 ${activeLink === 'contact' ? styles.activeNavLink : styles.navLink}`}
-                                href="#contact"
-                                onClick={(e) => handleClick(e, 'contact')}
-                            >
+                            <a className={`nav-link fs-4 ${activeLink === 'contact' ? styles.activeNavLink : styles.navLink}`} href="#contact" onClick={(e) => handleClick(e, 'contact')}>
                                 Contact
                             </a>
                         </li>
