@@ -8,57 +8,48 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
+    const initialActiveLink = localStorage.getItem('activeLink') || 'home';
     const [highlightStyle, setHighlightStyle] = useState<React.CSSProperties>({});
-    const [showNavbar, setShowNavbar] = useState(true);
-    const navRef = useRef<HTMLElement>(null);
-    let lastScrollY = window.scrollY;
+    const [isInitialLoad, setIsInitialLoad] = useState(true); // New state to track initial load
+    const navRef = useRef<HTMLDivElement>(null);
 
-    const updateHighlight = (el: HTMLElement) => {
+    const updateHighlight = (el: HTMLElement, animate = false) => {
         if (navRef.current) {
             const rect = el.getBoundingClientRect();
             const parentRect = navRef.current.getBoundingClientRect();
             const padding = 20;
             const highlightWidth = rect.width + padding * 2;
 
-            setHighlightStyle({
+            const newStyle: React.CSSProperties = {
                 width: `${highlightWidth}px`,
                 height: `${rect.height}px`,
                 transform: `translate(${rect.left - parentRect.left - padding}px, ${rect.top - parentRect.top}px)`,
-                transition: 'transform 0.2s ease-out',
                 opacity: 1,
-            });
+                ...(isInitialLoad ? {} : { transition: 'transform 0.2s ease-out' }), // Apply transition only after initial load
+            };
+
+            setHighlightStyle(newStyle);
         }
     };
 
     useEffect(() => {
-        // Set the initial highlight for the 'Home' navlink
         if (navRef.current) {
             const homeNavLink = navRef.current.querySelector(`.${styles.navLink}:first-child`);
-            if (homeNavLink && homeNavLink instanceof HTMLElement) {
+            if (homeNavLink instanceof HTMLElement) {
                 updateHighlight(homeNavLink);
             }
         }
-    
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            setShowNavbar(currentScrollY < lastScrollY || currentScrollY < 50);
-            lastScrollY = currentScrollY;
-        };
-    
-        window.addEventListener('scroll', handleScroll);
-
-        // Clean up the event listener
-        return () => window.removeEventListener('scroll', handleScroll);
+        setIsInitialLoad(false); // Update state after initial setup
     }, []);
 
     useEffect(() => {
-        if (navRef.current) {
-            const activeEl = navRef.current.querySelector(`.${styles.activeNavLink}`);
-            if (activeEl) {
-                updateHighlight(activeEl as HTMLElement);
+        if (navRef.current && !isInitialLoad) {
+            const activeNavLink = navRef.current.querySelector(`.${styles.activeNavLink}`);
+            if (activeNavLink instanceof HTMLElement) {
+                updateHighlight(activeNavLink);
             }
         }
-    }, [activeLink]);
+    }, [activeLink, isInitialLoad]);
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
         e.preventDefault();
@@ -69,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
     };
 
     return (
-        <nav className={`navbar navbar-expand-lg navbar-light ${showNavbar ? '' : styles.hideNavbar}`} ref={navRef}>
+        <nav className={`navbar navbar-expand-lg navbar-light mt-4`} ref={navRef}>
             <div className="container-fluid">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
