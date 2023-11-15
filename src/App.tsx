@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
-import Home from './pages/Home/Home'; // Import the Home component
+import Home from './pages/Home/Home';
 
 function App() {
   const [activeLink, setActiveLink] = useState('home');
@@ -10,9 +10,9 @@ function App() {
   };
 
   return (
-    <div className="App" style={{ backgroundColor: 'white', minHeight: '400vh' }}>
+    <div className="App" style={{ backgroundColor: 'white' }}>
       <Navbar activeLink={activeLink} onNavLinkClick={handleNavLinkClick} />
-      <Home /> {/* Include the Home component */}
+      <Home />
     </div>
   );
 }

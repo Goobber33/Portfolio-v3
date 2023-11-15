@@ -68,22 +68,22 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
                 <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item mx-4">
-                            <a className={`nav-link fs-4 ${activeLink === 'home' ? styles.activeNavLink : styles.navLink}`} href="#home" onClick={(e) => handleClick(e, 'home')}>
+                            <a className={`nav-link fs-5 ${activeLink === 'home' ? styles.activeNavLink : styles.navLink}`} href="#home" onClick={(e) => handleClick(e, 'home')} style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Home
                             </a>
                         </li>
                         <li className="nav-item mx-4">
-                            <a className={`nav-link fs-4 ${activeLink === 'about' ? styles.activeNavLink : styles.navLink}`} href="#about" onClick={(e) => handleClick(e, 'about')}>
+                            <a className={`nav-link fs-5 ${activeLink === 'about' ? styles.activeNavLink : styles.navLink}`} href="#about" onClick={(e) => handleClick(e, 'about')} style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 About
                             </a>
                         </li>
                         <li className="nav-item mx-4">
-                            <a className={`nav-link fs-4 ${activeLink === 'projects' ? styles.activeNavLink : styles.navLink}`} href="#projects" onClick={(e) => handleClick(e, 'projects')}>
+                            <a className={`nav-link fs-5 ${activeLink === 'projects' ? styles.activeNavLink : styles.navLink}`} href="#projects" onClick={(e) => handleClick(e, 'projects')} style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Projects
                             </a>
                         </li>
                         <li className="nav-item mx-4">
-                            <a className={`nav-link fs-4 ${activeLink === 'contact' ? styles.activeNavLink : styles.navLink}`} href="#contact" onClick={(e) => handleClick(e, 'contact')}>
+                            <a className={`nav-link fs-5 ${activeLink === 'contact' ? styles.activeNavLink : styles.navLink}`} href="#contact" onClick={(e) => handleClick(e, 'contact')} style={{ fontFamily: 'Roboto, sans-serif' }}>
                                 Contact
                             </a>
                         </li>
