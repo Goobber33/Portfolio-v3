@@ -31,14 +31,23 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
     };
 
     useEffect(() => {
+        // Set the initial highlight for the 'Home' navlink
+        if (navRef.current) {
+            const homeNavLink = navRef.current.querySelector(`.${styles.navLink}:first-child`);
+            if (homeNavLink && homeNavLink instanceof HTMLElement) {
+                updateHighlight(homeNavLink);
+            }
+        }
+    
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
             setShowNavbar(currentScrollY < lastScrollY || currentScrollY < 50);
             lastScrollY = currentScrollY;
         };
-
+    
         window.addEventListener('scroll', handleScroll);
 
+        // Clean up the event listener
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
