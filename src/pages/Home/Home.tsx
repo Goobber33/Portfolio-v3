@@ -15,7 +15,7 @@ const Home: React.FC = () => {
                 </div>
                 <div 
                     className={`${styles.animateParagraph} mt-5 p-4`} 
-                    style={{ maxWidth: '600px', margin: 'auto', fontFamily: "'Roboto', sans-serif", fontWeight: '100' }} // Adjusted font-weight here
+                    style={{ maxWidth: '600px', margin: 'auto', fontFamily: "'Roboto', sans-serif", fontWeight: '100' }}
                 >
                     <p style={{ color: '#00056B', fontSize: '1.5rem' }}>
                         Passionate about building seamless digital experiences with clean and efficient code.

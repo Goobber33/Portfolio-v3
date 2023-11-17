@@ -1,20 +1,37 @@
-// home.module.scss
 @keyframes slideDown {
     from {
         transform: translateY(-15%);
         opacity: 0;
+        visibility: hidden;
     }
     to {
         transform: translateY(0);
         opacity: 1;
+        visibility: visible;
     }
 }
 
 .animateGroup {
     animation: slideDown 0.8s ease forwards;
+    visibility: hidden; /* Initially hide the element */
 }
 
 .animateParagraph {
     animation: slideDown 0.8s ease forwards;
     animation-delay: 0.2s;
+    visibility: hidden; /* Initially hide the element */
+}
+
+.icon {
+    font-size: 5rem; // Adjust the size as needed
+    margin-right: 3rem;
+
+    &.html { color: #e34f26; } // HTML5 icon color
+    &.css { color: #1572B6; } // CSS3 icon color
+    &.javascript { color: #F0DB4F; } // JavaScript icon color
+    &.react { color: #61DAFB; } // React icon color
+    &.node { color: #68A063; } // Node.js icon color
+    &.mongodb { color: #4FAA41; } // MongoDB icon color
+    &.python { color: #3776AB; } // Python icon color
+    &.express { color: #000; } // Express.js icon color (default black)
 }
