@@ -17,7 +17,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
         if (navRef.current) {
             const rect = el.getBoundingClientRect();
             const parentRect = navRef.current.getBoundingClientRect();
-            const padding = 20;
+            const padding = 22;
             const highlightWidth = rect.width + padding * 2;
 
             const newStyle: React.CSSProperties = {
@@ -53,6 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
         e.preventDefault();
+        console.log("NavLink clicked:", link); // Add this line for debugging
         onNavLinkClick(link);
         if (e.currentTarget instanceof HTMLElement) {
             updateHighlight(e.currentTarget);
@@ -60,7 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
     };
 
     return (
-        <nav className={`navbar navbar-expand-lg navbar-light mt-4`} ref={navRef}>
+        <nav className="navbar navbar-expand-lg navbar-light mt-4" style={{ width: '100%' }} ref={navRef}>
             <div className="container-fluid">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

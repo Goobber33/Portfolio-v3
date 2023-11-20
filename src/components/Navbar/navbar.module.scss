@@ -13,8 +13,8 @@
 
 .activeNavLink,
 .activeNavLink:focus {
-  color: black; // Set the font color to white for active and focused states
-  outline: none; // Optional: Removes the browser default focus outline
+  color: black;
+  outline: none;
 }
 .hideNavbar {
   transform: translateY(-100%);
