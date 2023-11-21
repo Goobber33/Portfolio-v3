@@ -6,11 +6,15 @@ const About: React.FC = () => {
         <div id="about" className="d-flex flex-column align-items-center justify-content-center about-section" style={{ paddingTop: '7%' }}>
             <div className="text-center">
 
-                <div className={`${styles.animateParagraph} mt-5 p-4`}>
-                    <h1 style={{ color: '#00056B', fontSize: '4rem', fontFamily: "'DM Serif Display', serif", maxWidth: '900px' }}>
-                        My name is Kyle Parks, I am a freelance Software Engineer.
+                <div className={`${styles.animateParagraph}`}>
+                    <h1 style={{ color: '#00056B', fontSize: '7rem', fontFamily: "'DM Serif Display', serif", maxWidth: '1300px' }}>
+                        My name is Kyle Parks, I am a Freelance Software Engineer.
                     </h1>
                 </div>
+            </div>
+
+            <div className="mt-5 text-center" style={{ fontFamily: "'Roboto', sans-serif", fontWeight: '100' }}>
+                <p style={{ color: '#00056B', fontSize: '2rem', maxWidth: '1000px' }}>Over the past four years, I've worked in various IT roles. Initially intimidated by coding, this past year marked a significant shift — I've grown to love building software, finding joy in the challenge and creativity it offers.</p>
             </div>
 
             <div className={styles.animateTwo}>
@@ -34,7 +38,7 @@ const About: React.FC = () => {
 
                     </div>
 
-                    
+
                     <div className="d-flex flex-wrap justify-content-center">
                         <div className="text-center m-2">
                             <i className={`fab fa-html5 ${styles.icon} ${styles.html}`}></i>
