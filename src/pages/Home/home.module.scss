@@ -13,11 +13,11 @@
 
 .animateGroup {
     animation: slideDown 0.8s ease forwards;
-    visibility: hidden; /* Initially hide the element */
+    visibility: hidden;
 }
 
 .animateParagraph {
     animation: slideDown 0.8s ease forwards;
     animation-delay: 0.2s;
-    visibility: hidden; /* Initially hide the element */
+    visibility: hidden;
 }

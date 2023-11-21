@@ -11,26 +11,39 @@
     }
 }
 
-.animateGroup {
-    animation: slideDown 0.8s ease forwards;
-    visibility: hidden; /* Initially hide the element */
+@keyframes slideDownTwo {
+    from {
+        transform: translateY(-6%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 .animateParagraph {
     animation: slideDown 0.8s ease forwards;
-    animation-delay: 0.2s;
-    visibility: hidden; /* Initially hide the element */
+    visibility: hidden;
+}
+
+.animateTwo {
+    animation: slideDownTwo 0.8s ease forwards;
+    visibility: hidden;
+    animation-delay: 0.1s;
 }
 
 .icon {
-    font-size: 5rem; // Adjust the size as needed
+    font-size: 5rem;
     padding: 1rem;
-    &.html { color: #e34f26; } // HTML5 icon color
-    &.css { color: #1572B6; } // CSS3 icon color
-    &.javascript { color: #F0DB4F; } // JavaScript icon color
-    &.react { color: #61DAFB; } // React icon color
-    &.node { color: #68A063; } // Node.js icon color
-    &.mongodb { color: #4FAA41; } // MongoDB icon color
-    &.python { color: #3776AB; } // Python icon color
-    &.express { color: #000; } // Express.js icon color (default black)
+    &.html { color: #e34f26; }
+    &.css { color: #1572B6; }
+    &.javascript { color: #F0DB4F; }
+    &.react { color: #61DAFB; }
+    &.node { color: #68A063; }
+    &.mongodb { color: #4FAA41; }
+    &.python { color: #3776AB; }
+    &.express { color: #000; }
 }

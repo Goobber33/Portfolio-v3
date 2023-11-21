@@ -22,7 +22,7 @@ function App() {
     };
 
     return (
-        <div className="App" style={{ backgroundColor: 'white' }}>
+        <div className="App" style={{ backgroundColor: 'white', height: '100vh' }}>
             <Navbar activeLink={activeLink} onNavLinkClick={handleNavLinkClick} />
             {renderSection()}
         </div>
