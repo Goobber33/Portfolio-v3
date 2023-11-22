@@ -9,7 +9,7 @@ const About: React.FC = () => {
 
                 <div className="row">
                     <div className="col text-center">
-                        <h1 style={{ color: '#00056B', fontSize: '9rem', fontFamily: "'DM Serif Display', serif", maxWidth: '1800px', margin: '0 auto' }}>
+                        <h1 className={styles.animateParagraph} style={{ color: '#00056B', fontSize: '9rem', fontFamily: "'DM Serif Display', serif", maxWidth: '1800px', margin: '0 auto' }}>
                             Kyle Parks
                         </h1>
                     </div>
@@ -17,7 +17,7 @@ const About: React.FC = () => {
 
                 <div className="row justify-content-center align-items-center mt-5">
                     <div className="col-md-5 text-center">
-                        <img src={profileImage} alt="Kyle Parks" className="img-fluid" style={{ borderTopLeftRadius: '10rem', borderTopRightRadius: '10rem', maxWidth: '70%' }} />
+                        <img className={styles.animateParagraph} src={profileImage} alt="Kyle Parks" style={{ borderTopLeftRadius: '10rem', borderTopRightRadius: '10rem', maxWidth: '65%' }} />
                     </div>
 
                     <div className="col-md-7">
