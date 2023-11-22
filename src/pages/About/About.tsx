@@ -1,21 +1,30 @@
 import React from 'react';
 import styles from './about.module.scss';
+import profileImage from '../../assets/images/kyle.jpeg';
 
 const About: React.FC = () => {
     return (
-        <div id="about" className="d-flex flex-column align-items-center justify-content-center about-section" style={{ paddingTop: '7%' }}>
-            <div className="text-center">
+        <div id="about" className="about-section" style={{ paddingTop: '7%' }}>
+            <div className="container">
+                <div className="row justify-content-center align-items-center">
+                 
+                    <div className="col-md-5 text-center">
+                        <img src={profileImage} alt="Kyle Parks" className="img-fluid" style={{ borderTopLeftRadius: '10rem', borderTopRightRadius: '10rem', maxWidth: '80%' }} />
+                    </div>
 
-                <div className={`${styles.animateParagraph}`}>
-                    <h1 style={{ color: '#00056B', fontSize: '7rem', fontFamily: "'DM Serif Display', serif", maxWidth: '1300px' }}>
-                        My name is Kyle Parks, I am a Freelance Software Engineer.
-                    </h1>
+               
+                    <div className="col-md-7">
+                        <div className={styles.animateParagraph} style={{ textAlign: 'left', paddingLeft: '4rem', maxWidth: '1000px' }}>
+                            <h1 style={{ color: '#00056B', fontSize: '5rem', fontFamily: "'DM Serif Display', serif" }}>
+                                My name is Kyle Parks, I am a Freelance Software Engineer.
+                            </h1>
+                            <p style={{ color: '#00056B', fontFamily: "'Roboto', sans-serif", fontSize: '1.5rem', maxWidth: '900px', fontWeight: '100' }}>
+                                Over the past four years, I've worked in various IT roles. Initially intimidated by coding, this past year marked a significant shift — I've grown to love building software, finding joy in the challenge and creativity it offers.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="mt-5 text-center" style={{ fontFamily: "'Roboto', sans-serif", fontWeight: '100' }}>
-                <p style={{ color: '#00056B', fontSize: '2rem', maxWidth: '1000px' }}>Over the past four years, I've worked in various IT roles. Initially intimidated by coding, this past year marked a significant shift — I've grown to love building software, finding joy in the challenge and creativity it offers.</p>
-            </div>
 
             <div className={styles.animateTwo}>
 
@@ -90,7 +99,8 @@ const About: React.FC = () => {
                 </div>
             </div>
         </div>
+        </div>
     );
 };
 
-export default About;
+export default About
