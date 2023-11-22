@@ -3,13 +3,13 @@ import styles from './home.module.scss';
 
 const Home: React.FC = () => {
     return (
-        <div id="home" className="d-flex align-items-start justify-content-center home-section" style={{ paddingTop: '7%' }}>
+        <div id="home" className="d-flex align-items-start justify-content-center home-section" style={{ paddingTop: '6%' }}>
             <div className="text-center">
                 <div className={`${styles.animateGroup}`}>
-                    <h1 style={{ color: '#00056B', fontSize: '12rem', fontFamily: "'DM Serif Display', serif" }}>
+                    <h1 style={{ color: '#00056B', fontSize: '10rem', fontFamily: "'DM Serif Display', serif" }}>
                         Hi. I'm Kyle
                     </h1>
-                    <p style={{ color: '#00056B', fontSize: '5rem', fontFamily: "'DM Serif Display', serif" }}>
+                    <p style={{ color: '#00056B', fontSize: '3rem', fontFamily: "'DM Serif Display', serif" }}>
                         I'm a Software Engineer
                     </p>
                 </div>
