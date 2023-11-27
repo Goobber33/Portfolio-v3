@@ -36,7 +36,7 @@ const About: React.FC = () => {
                 <div className={styles.animateTwo}>
 
                     <div className="mt-5" style={{ width: '100%', maxWidth: '1100px' }}>
-                        <div className="card-body">
+                        <div className="card-body text-center">
 
                             <p className="card-text text-center" style={{ fontFamily: "'Roboto', sans-serif" }}>
                                 <strong>Freelance Full-Stack Developer | The Shed</strong> <br />

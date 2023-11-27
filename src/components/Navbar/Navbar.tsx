@@ -8,9 +8,8 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
-    const initialActiveLink = localStorage.getItem('activeLink') || 'home';
     const [highlightStyle, setHighlightStyle] = useState<React.CSSProperties>({});
-    const [isInitialLoad, setIsInitialLoad] = useState(true); // New state to track initial load
+    const [isInitialLoad, setIsInitialLoad] = useState(true);
     const navRef = useRef<HTMLDivElement>(null);
 
     const updateHighlight = (el: HTMLElement, animate = false) => {
@@ -25,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
                 height: `${rect.height}px`,
                 transform: `translate(${rect.left - parentRect.left - padding}px, ${rect.top - parentRect.top}px)`,
                 opacity: 1,
-                ...(isInitialLoad ? {} : { transition: 'transform 0.2s ease-out' }), // Apply transition only after initial load
+                transition: animate ? 'transform 0.2s ease-out' : undefined,
             };
 
             setHighlightStyle(newStyle);
@@ -39,26 +38,26 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
                 updateHighlight(homeNavLink);
             }
         }
-        setIsInitialLoad(false); // Update state after initial setup
-    }, []);
+        setIsInitialLoad(false);
+    }, [navRef]);
 
     useEffect(() => {
         if (navRef.current && !isInitialLoad) {
             const activeNavLink = navRef.current.querySelector(`.${styles.activeNavLink}`);
             if (activeNavLink instanceof HTMLElement) {
-                updateHighlight(activeNavLink);
+                updateHighlight(activeNavLink, true);
             }
         }
-    }, [activeLink, isInitialLoad]);
+    }, [activeLink, isInitialLoad, navRef]);
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
         e.preventDefault();
-        console.log("NavLink clicked:", link); // Add this line for debugging
         onNavLinkClick(link);
         if (e.currentTarget instanceof HTMLElement) {
-            updateHighlight(e.currentTarget);
+            updateHighlight(e.currentTarget, true);
         }
     };
+
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light mt-4" style={{ width: '100%' }} ref={navRef}>
