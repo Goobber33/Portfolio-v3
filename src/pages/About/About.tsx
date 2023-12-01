@@ -3,7 +3,7 @@ import styles from './about.module.scss';
 import profileImage from '../../assets/images/kyle.jpeg';
 import shed from '../../assets/images/Shed.png';
 import websiteIcon from '../../assets/images/website.svg';
-import weightIcon from '../../assets/images/weight.svg';
+import wood from '../../assets/images/Wood.png';
 
 const About: React.FC = () => {
     return (
@@ -26,7 +26,7 @@ const About: React.FC = () => {
                     <div className="col-md-7">
                         <div className={styles.animateParagraph} style={{ paddingLeft: '3rem', maxWidth: '1000px' }}>
                             <p style={{ color: '#00056B', fontSize: '3rem', fontFamily: "'DM Serif Display', serif" }}>
-                                I am a freelance software engineer, and I live in Coeur d'Alene Idaho.
+                                I am a freelance software engineer, and I live in Idaho.
                             </p>
                             <p className="mt-5" style={{ color: '#00056B', fontFamily: "'Roboto', sans-serif", fontSize: '1.5rem', maxWidth: '900px', fontWeight: '100' }}>
                                 Over the past four years, I've worked in various IT roles. Initially intimidated by coding, this past year marked a significant shift — I've grown to love building software, finding joy in the challenge and creativity it offers.
@@ -44,18 +44,24 @@ const About: React.FC = () => {
                             June 2023 - Current
                         </p>
 
-                        <div className={styles.shedImageContainer} style={{ maxWidth: '50%' }} >
+                        <div className={styles.shedImageContainer} style={{ maxWidth: '60%' }} >
                             <a href="https://goobber33.github.io/The-Shed/" target="_blank" rel="noopener noreferrer">
                                 <img src={shed} alt="The Shed" className={`img-fluid mt-5 mb-5 ${styles.shedHoverEffect}`} />
                             </a>
                             <img src={websiteIcon} alt="Website" className={styles.websiteIcon} />
-                            <img src={weightIcon} alt="Weight" className={styles.weightIcon} />
                         </div>
 
                         <h3 className="mt-5" style={{ color: '#00056B', fontSize: '3rem', fontFamily: "'DM Serif Display', serif" }}>Freelance Full-Stack Developer | New Wood Designs</h3>
                         <p style={{ color: '#00056B', fontFamily: "'Roboto', sans-serif", fontSize: '1.5rem', fontWeight: '100' }}>
                             September 2023 - Current
                         </p>
+
+                        <div className={styles.shedImageContainer} style={{ maxWidth: '60%' }} >
+                            <a href="https://goobber33.github.io/Jeff-Barden-Portfolio/" target="_blank" rel="noopener noreferrer">
+                                <img src={wood} alt="New Wood Designs" className={`img-fluid mt-5 mb-5 ${styles.shedHoverEffect}`} />
+                            </a>
+                            <img src={websiteIcon} alt="Website" className={styles.websiteIcon} />
+                        </div>
 
                         <h3 className="mt-4" style={{ color: '#00056B', fontSize: '2.5rem', fontFamily: "'DM Serif Display', serif" }}>MSP Field Technician | Intermax Networks</h3>
                         <p style={{ color: '#00056B', fontFamily: "'Roboto', sans-serif", fontSize: '1.5rem', fontWeight: '100' }}>
@@ -66,6 +72,19 @@ const About: React.FC = () => {
                         <p style={{ color: '#00056B', fontFamily: "'Roboto', sans-serif", fontSize: '1.5rem', fontWeight: '100' }}>
                             August 2021 - October 2022
                         </p>
+
+                        <div className="mb-5 d-flex justify-content-center">
+                            <p className="text-center" style={{
+                                color: '#00056B',
+                                fontFamily: "'Roboto', serif",
+                                fontSize: '1.5rem',
+                                fontWeight: '100',
+                                marginTop: '8rem',
+                                maxWidth: '900px'
+                            }}>
+                                My journey in coding began at the University of Washington's coding bootcamp, where I first mastered HTML and CSS, and then progressed to JavaScript. This solid foundation spurred my passion for web development, leading me to acquire skills in React, Node.js, MongoDB, and Express.js. Python was my latest endeavor, further diversifying my expertise. Each step in this path has been fueled by a relentless drive to innovate and excel in software engineering.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
