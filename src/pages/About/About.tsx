@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from './about.module.scss';
 import profileImage from '../../assets/images/kyle.jpeg';
+import shed from '../../assets/images/Shed.png';
+import websiteIcon from '../../assets/images/website.svg';
+import weightIcon from '../../assets/images/weight.svg';
 
 const About: React.FC = () => {
     return (
@@ -17,7 +20,7 @@ const About: React.FC = () => {
 
                 <div className="row justify-content-center align-items-center mt-5">
                     <div className="col-md-5 text-center">
-                        <img className={styles.animateParagraph} src={profileImage} alt="Kyle Parks" style={{ borderTopLeftRadius: '10rem', borderTopRightRadius: '10rem', maxWidth: '65%' }} />
+                        <img className={styles.animateParagraph} src={profileImage} alt="Kyle Parks" style={{ borderTopLeftRadius: '10rem', borderTopRightRadius: '10rem', maxWidth: '65%', marginBottom: '1rem' }} />
                     </div>
 
                     <div className="col-md-7">
@@ -32,82 +35,92 @@ const About: React.FC = () => {
                     </div>
                 </div>
 
-
-                <div className={styles.animateTwo}>
-
-                    <div className="mt-5" style={{ width: '100%', maxWidth: '1100px' }}>
-                        <div className="card-body text-center">
-
-                            <p className="card-text text-center" style={{ fontFamily: "'Roboto', sans-serif" }}>
-                                <strong>Freelance Full-Stack Developer | The Shed</strong> <br />
-                                June 2023 - Current <br />
-                                <br />
-                                <strong>Freelance Full-Stack Developer | New Wood Designs</strong> <br />
-                                September 2023 - Current <br />
-                                <br />
-                                <strong>MSP Field Technician | Intermax Networks</strong> <br />
-                                December 2022 – June 2023 <br />
-                                <br />
-                                <strong>Client Support Technician | Northern Quest Resort & Casino</strong> <br />
-                                August 2021 - October 2022 <br />
-                            </p>
-
-                        </div>
-
-
-                        <div className="d-flex flex-wrap justify-content-center">
-                            <div className="text-center m-2">
-                                <i className={`fab fa-html5 ${styles.icon} ${styles.html}`}></i>
-                                <p className="m-0">HTML</p>
-                            </div>
-                            <div className="text-center m-2">
-                                <i className={`fab fa-css3-alt ${styles.icon} ${styles.css}`}></i>
-                                <p className="m-0">CSS</p>
-                            </div>
-                            <div className="text-center m-2">
-                                <i className={`fab fa-js-square ${styles.icon} ${styles.javascript}`}></i>
-                                <p className="m-0">JavaScript</p>
-                            </div>
-                            <div className="text-center m-2">
-                                <i className={`fab fa-react ${styles.icon} ${styles.react}`}></i>
-                                <p className="m-0">React</p>
-                            </div>
-                            <div className="text-center m-2">
-                                <i className={`fab fa-node-js ${styles.icon} ${styles.node}`}></i>
-                                <p className="m-0">Node.js</p>
-                            </div>
-                            <div className="text-center m-2">
-                                <i className={`fas fa-database ${styles.icon} ${styles.mongodb}`}></i>
-                                <p className="m-0">MongoDB</p>
-                            </div>
-                            <div className="text-center m-2">
-                                <i className={`fab fa-python ${styles.icon} ${styles.python}`}></i>
-                                <p className="m-0">Python</p>
-                            </div>
-                            <div className="text-center m-2">
-                                <i className={`fas fa-server ${styles.icon} ${styles.express}`}></i>
-                                <p className="m-0">Express.js</p>
-                            </div>
-                        </div>
-
-                        <h3 className="mt-4 text-center" style={{ color: '#00056B', fontSize: '2.5rem', fontFamily: "'DM Serif Display', serif" }}>Education</h3>
-                        <p className="card-text text-center" style={{ fontFamily: "'Roboto', sans-serif" }}>
-                            University of Washington | Coding Bootcamp <br />
-                            December 2022 - Current <br />
-                            North Idaho College | Computer Science Courses <br />
-                            February 2018 - March 2019
+                <div className={styles.animateTwo} style={{ marginTop: '5%' }}>
+                    <div className="card-body text-center">
+                        <h2 style={{ color: '#00056B', fontSize: '3rem', fontFamily: "'DM Serif Display', serif" }}>
+                            Freelance Full-Stack Developer | The Shed
+                        </h2>
+                        <p style={{ color: '#00056B', fontFamily: "'Roboto', sans-serif", fontSize: '1.5rem', fontWeight: '100' }}>
+                            June 2023 - Current
                         </p>
 
-                        <h3 className="mt-4 text-center" style={{ color: '#00056B', fontSize: '2.5rem', fontFamily: "'DM Serif Display', serif" }}>Certifications</h3>
-                        <p className="card-text text-center" style={{ fontFamily: "'Roboto', sans-serif" }}>
-                            CompTIA A+ Certified <br />
-                            08/2022 – Exp: 08/2025
+                        <div className={styles.shedImageContainer} style={{ maxWidth: '50%' }} >
+                            <a href="https://goobber33.github.io/The-Shed/" target="_blank" rel="noopener noreferrer">
+                                <img src={shed} alt="The Shed" className={`img-fluid mt-5 mb-5 ${styles.shedHoverEffect}`} />
+                            </a>
+                            <img src={websiteIcon} alt="Website" className={styles.websiteIcon} />
+                            <img src={weightIcon} alt="Weight" className={styles.weightIcon} />
+                        </div>
+
+                        <h3 className="mt-5" style={{ color: '#00056B', fontSize: '3rem', fontFamily: "'DM Serif Display', serif" }}>Freelance Full-Stack Developer | New Wood Designs</h3>
+                        <p style={{ color: '#00056B', fontFamily: "'Roboto', sans-serif", fontSize: '1.5rem', fontWeight: '100' }}>
+                            September 2023 - Current
+                        </p>
+
+                        <h3 className="mt-4" style={{ color: '#00056B', fontSize: '2.5rem', fontFamily: "'DM Serif Display', serif" }}>MSP Field Technician | Intermax Networks</h3>
+                        <p style={{ color: '#00056B', fontFamily: "'Roboto', sans-serif", fontSize: '1.5rem', fontWeight: '100' }}>
+                            December 2022 – June 2023
+                        </p>
+
+                        <h3 className="mt-4" style={{ color: '#00056B', fontSize: '2.5rem', fontFamily: "'DM Serif Display', serif" }}>Client Support Technician | Northern Quest Resort & Casino</h3>
+                        <p style={{ color: '#00056B', fontFamily: "'Roboto', sans-serif", fontSize: '1.5rem', fontWeight: '100' }}>
+                            August 2021 - October 2022
                         </p>
                     </div>
                 </div>
+
+
+                <div className="d-flex flex-wrap justify-content-center">
+                    <div className="text-center m-2">
+                        <i className={`fab fa-html5 ${styles.icon} ${styles.html}`}></i>
+                        <p className="m-0">HTML</p>
+                    </div>
+                    <div className="text-center m-2">
+                        <i className={`fab fa-css3-alt ${styles.icon} ${styles.css}`}></i>
+                        <p className="m-0">CSS</p>
+                    </div>
+                    <div className="text-center m-2">
+                        <i className={`fab fa-js-square ${styles.icon} ${styles.javascript}`}></i>
+                        <p className="m-0">JavaScript</p>
+                    </div>
+                    <div className="text-center m-2">
+                        <i className={`fab fa-react ${styles.icon} ${styles.react}`}></i>
+                        <p className="m-0">React</p>
+                    </div>
+                    <div className="text-center m-2">
+                        <i className={`fab fa-node-js ${styles.icon} ${styles.node}`}></i>
+                        <p className="m-0">Node.js</p>
+                    </div>
+                    <div className="text-center m-2">
+                        <i className={`fas fa-database ${styles.icon} ${styles.mongodb}`}></i>
+                        <p className="m-0">MongoDB</p>
+                    </div>
+                    <div className="text-center m-2">
+                        <i className={`fab fa-python ${styles.icon} ${styles.python}`}></i>
+                        <p className="m-0">Python</p>
+                    </div>
+                    <div className="text-center m-2">
+                        <i className={`fas fa-server ${styles.icon} ${styles.express}`}></i>
+                        <p className="m-0">Express.js</p>
+                    </div>
+                </div>
+
+                <h3 className="mt-4 text-center" style={{ color: '#00056B', fontSize: '2.5rem', fontFamily: "'DM Serif Display', serif" }}>Education</h3>
+                <p className="card-text text-center" style={{ fontFamily: "'Roboto', sans-serif" }}>
+                    University of Washington | Coding Bootcamp <br />
+                    December 2022 - Current <br />
+                    North Idaho College | Computer Science Courses <br />
+                    February 2018 - March 2019
+                </p>
+
+                <h3 className="mt-4 text-center" style={{ color: '#00056B', fontSize: '2.5rem', fontFamily: "'DM Serif Display', serif" }}>Certifications</h3>
+                <p className="card-text text-center" style={{ fontFamily: "'Roboto', sans-serif" }}>
+                    CompTIA A+ Certified <br />
+                    08/2022 – Exp: 08/2025
+                </p>
             </div>
         </div>
     );
 };
 
-export default About
+export default About;

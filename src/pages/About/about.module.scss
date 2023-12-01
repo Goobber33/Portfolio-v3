@@ -35,6 +35,60 @@
     animation-delay: 0.1s;
 }
 
+.shedHoverEffect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 10px #00056B;
+    }
+}
+
+.shedImageContainer {
+    position: relative;
+    display: inline-block;
+
+    img:first-child {
+        display: block;
+        max-width: 100%;
+        border-radius: 2rem;
+    }
+
+    &:hover .websiteIcon {
+        top: -10px;
+        opacity: 1;
+        transform: translateY(-10%);
+    }
+
+    &:hover .weightIcon {
+        top: -10px;
+        opacity: 1;
+        transform: translateY(-10%);
+    }
+}
+
+.weightIcon {
+    position: absolute;
+    height: 10px;
+    top: 0%;
+    right: 90%;
+    opacity: 0;
+    transition: top 0.3s ease, opacity 0.3s ease;
+    width: 60px;
+    height: auto;
+}
+
+.websiteIcon {
+    position: absolute;
+    height: 10px;
+    top: 0%;
+    right: 0%;
+    opacity: 0;
+    transition: top 0.3s ease, opacity 0.3s ease;
+    width: 60px;
+    height: auto;
+}
+
 .icon {
     font-size: 5rem;
     padding: 1rem;
