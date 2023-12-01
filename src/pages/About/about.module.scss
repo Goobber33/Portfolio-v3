@@ -39,7 +39,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
-        transform: scale(1.01);
+        transform: scale(1.02);
         box-shadow: 0 0 10px #00056B;
     }
 }
@@ -52,12 +52,6 @@
         display: block;
         max-width: 100%;
         border-radius: 2rem;
-    }
-
-    &:hover .websiteIcon {
-        top: -10px;
-        opacity: 1;
-        transform: translateY(-10%);
     }
 }
 
@@ -83,4 +77,13 @@
     &.mongodb { color: #4FAA41; }
     &.python { color: #3776AB; }
     &.express { color: #000; }
+    &.bootstrap { color: purple; }
 }
+
+.icon {
+    transition: transform 0.3s ease;
+  
+    &.html:hover, &.css:hover, &.javascript:hover, &.react:hover, &.node:hover, &.mongodb:hover, &.python:hover, &.express:hover {
+      transform: scale(1.20);
+    }
+  }
