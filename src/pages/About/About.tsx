@@ -126,19 +126,7 @@ const About: React.FC = () => {
                     </div>
                 </div>
 
-                <h3 className="mt-5 text-center" style={{ color: '#00056B', fontSize: '2.5rem', fontFamily: "'DM Serif Display', serif" }}>Education</h3>
-                <p className="card-text text-center" style={{ fontFamily: "'Roboto', sans-serif" }}>
-                    University of Washington | Coding Bootcamp <br />
-                    December 2022 - June 2023 <br />
-                    North Idaho College | Computer Science Courses <br />
-                    February 2018 - March 2019
-                </p>
-
-                <h3 className="mt-4 text-center" style={{ color: '#00056B', fontSize: '2.5rem', fontFamily: "'DM Serif Display', serif" }}>Certifications</h3>
-                <p className="card-text text-center" style={{ fontFamily: "'Roboto', sans-serif" }}>
-                    CompTIA A+ Certified <br />
-                    08/2022 – Exp: 08/2025
-                </p>
+               
             </div>
         </div>
     );
