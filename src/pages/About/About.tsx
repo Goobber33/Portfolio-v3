@@ -2,8 +2,7 @@ import React from 'react';
 import styles from './about.module.scss';
 import profileImage from '../../assets/images/kyle.jpeg';
 import profileImageTwo from '../../assets/images/kyletwo.jpeg';
-import shed from '../../assets/images/Shed.png';
-import wood from '../../assets/images/Wood.png';
+
 
 const About: React.FC = () => {
     return (
@@ -44,30 +43,17 @@ const About: React.FC = () => {
                             June 2023 - Current
                         </p>
 
-                        <div className={styles.shedImageContainer} style={{ maxWidth: '40%' }} >
-                            <a href="https://goobber33.github.io/The-Shed/" target="_blank" rel="noopener noreferrer">
-                                <img src={shed} alt="The Shed" className={`img-fluid mt-5 mb-5 ${styles.shedHoverEffect}`} />
-                            </a>
-
-                        </div>
-
                         <h3 className="mt-5" style={{ color: '#00056B', fontSize: '3rem', fontFamily: "'DM Serif Display', serif" }}>Freelance Full-Stack Developer | New Wood Designs</h3>
                         <p style={{ color: '#00056B', fontFamily: "'Roboto', sans-serif", fontSize: '1.5rem', fontWeight: '100' }}>
                             September 2023 - Current
                         </p>
 
-                        <div className={styles.shedImageContainer} style={{ maxWidth: '40%' }} >
-                            <a href="https://goobber33.github.io/Jeff-Barden-Portfolio/" target="_blank" rel="noopener noreferrer">
-                                <img src={wood} alt="New Wood Designs" className={`img-fluid mt-5 mb-5 ${styles.shedHoverEffect}`} />
-                            </a>
-                        </div>
-
-                        <h3 className="mt-4" style={{ color: '#00056B', fontSize: '2.5rem', fontFamily: "'DM Serif Display', serif" }}>MSP Field Technician | Intermax Networks</h3>
+                        <h3 className="mt-5" style={{ color: '#00056B', fontSize: '3rem', fontFamily: "'DM Serif Display', serif" }}>MSP Field Technician | Intermax Networks</h3>
                         <p style={{ color: '#00056B', fontFamily: "'Roboto', sans-serif", fontSize: '1.5rem', fontWeight: '100' }}>
                             December 2022 – June 2023
                         </p>
 
-                        <h3 className="mt-4" style={{ color: '#00056B', fontSize: '2.5rem', fontFamily: "'DM Serif Display', serif" }}>Client Support Technician | Northern Quest Resort & Casino</h3>
+                        <h3 className="mt-5" style={{ color: '#00056B', fontSize: '3rem', fontFamily: "'DM Serif Display', serif" }}>Client Support Technician | Northern Quest Resort & Casino</h3>
                         <p style={{ color: '#00056B', fontFamily: "'Roboto', sans-serif", fontSize: '1.5rem', fontWeight: '100', marginBottom: '12rem' }}>
                             August 2021 - October 2022
                         </p>

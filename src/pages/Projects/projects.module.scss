@@ -1,0 +1,53 @@
+@keyframes slideDown {
+    from {
+        transform: translateY(-15%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes slideDownTwo {
+    from {
+        transform: translateY(-6%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.animateParagraph {
+    animation: slideDown 0.8s ease forwards;
+    visibility: hidden;
+}
+
+.animateTwo {
+    animation: slideDownTwo 0.8s ease forwards;
+    visibility: hidden;
+    animation-delay: 0.1s;
+}
+
+.cardCustomHeight {
+    min-height: 11rem; // Existing style
+}
+
+.cardHover {
+    transition: transform 0.3s ease; // Smooth transition for the hover effect
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-10px); // Moves the card up by 10px on hover
+    }
+}
+
+.projects-section {
+    padding-bottom: 50px; // Existing style
+}
