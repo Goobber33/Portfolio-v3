@@ -10,6 +10,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
     const [highlightStyle, setHighlightStyle] = useState<React.CSSProperties>({});
     const [isInitialLoad, setIsInitialLoad] = useState(true);
+    const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
     const navRef = useRef<HTMLDivElement>(null);
 
     const updateHighlight = (el: HTMLElement, animate = false) => {
@@ -56,38 +57,62 @@ const Navbar: React.FC<NavbarProps> = ({ activeLink, onNavLinkClick }) => {
         if (e.currentTarget instanceof HTMLElement) {
             updateHighlight(e.currentTarget, true);
         }
+        if (window.innerWidth <= 992) {
+            setIsMobileNavOpen(false); // Close offcanvas on link click in mobile view
+        }
     };
 
+    const toggleMobileNav = () => {
+        setIsMobileNavOpen(!isMobileNavOpen);
+    };
+
+    const navLinks = (
+        <ul className="navbar-nav">
+            <li className="nav-item mx-4">
+                <a className={`nav-link fs-5 ${activeLink === 'home' ? styles.activeNavLink : styles.navLink}`} href="#home" onClick={(e) => handleClick(e, 'home')} style={{ fontFamily: 'Roboto, sans-serif' }}>
+                    Home
+                </a>
+            </li>
+            <li className="nav-item mx-4">
+                <a className={`nav-link fs-5 ${activeLink === 'about' ? styles.activeNavLink : styles.navLink}`} href="#about" onClick={(e) => handleClick(e, 'about')} style={{ fontFamily: 'Roboto, sans-serif' }}>
+                    About
+                </a>
+            </li>
+            <li className="nav-item mx-4">
+                <a className={`nav-link fs-5 ${activeLink === 'projects' ? styles.activeNavLink : styles.navLink}`} href="#projects" onClick={(e) => handleClick(e, 'projects')} style={{ fontFamily: 'Roboto, sans-serif' }}>
+                    Projects
+                </a>
+            </li>
+            <li className="nav-item mx-4">
+                <a className={`nav-link fs-5 ${activeLink === 'contact' ? styles.activeNavLink : styles.navLink}`} href="#contact" onClick={(e) => handleClick(e, 'contact')} style={{ fontFamily: 'Roboto, sans-serif' }}>
+                    Contact
+                </a>
+            </li>
+        </ul>
+    );
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light mt-4" style={{ width: '100%' }} ref={navRef}>
             <div className="container-fluid">
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                {/* Toggler for mobile view */}
+                <button className="navbar-toggler d-lg-none" type="button" onClick={toggleMobileNav} aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
+
+                {/* Offcanvas navbar for mobile */}
+                <div className={`offcanvas offcanvas-start d-lg-none ${isMobileNavOpen ? 'show' : ''}`} tabIndex={-1}>
+                    <div className="offcanvas-header">
+                        <p></p>
+                        <button type="button" className="btn-close" onClick={toggleMobileNav} aria-label="Close"></button>
+                    </div>
+                    <div className="offcanvas-body">
+                        {navLinks} {/* Mobile Nav Links */}
+                    </div>
+                </div>
+
+                {/* Regular navbar for desktop */}
                 <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item mx-4">
-                            <a className={`nav-link fs-5 ${activeLink === 'home' ? styles.activeNavLink : styles.navLink}`} href="#home" onClick={(e) => handleClick(e, 'home')} style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                Home
-                            </a>
-                        </li>
-                        <li className="nav-item mx-4">
-                            <a className={`nav-link fs-5 ${activeLink === 'about' ? styles.activeNavLink : styles.navLink}`} href="#about" onClick={(e) => handleClick(e, 'about')} style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                About
-                            </a>
-                        </li>
-                        <li className="nav-item mx-4">
-                            <a className={`nav-link fs-5 ${activeLink === 'projects' ? styles.activeNavLink : styles.navLink}`} href="#projects" onClick={(e) => handleClick(e, 'projects')} style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                Projects
-                            </a>
-                        </li>
-                        <li className="nav-item mx-4">
-                            <a className={`nav-link fs-5 ${activeLink === 'contact' ? styles.activeNavLink : styles.navLink}`} href="#contact" onClick={(e) => handleClick(e, 'contact')} style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
+                    {navLinks} {/* Desktop Nav Links */}
                 </div>
             </div>
             <div className={styles.highlight} style={highlightStyle} />

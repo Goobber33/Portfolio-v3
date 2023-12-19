@@ -7,7 +7,7 @@
   position: absolute;
   top: 3%;
   left: 0;
-  background-color: rgba( 0, 5, 107, 0.2);
+  background-color: rgba(0, 5, 107, 0.2);
   border-radius: 24px !important;
 }
 
@@ -16,7 +16,47 @@
   color: black;
   outline: none;
 }
+
 .hideNavbar {
   transform: translateY(-100%);
   transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 992px) {
+  .navbar {
+      background-color: transparent;
+      position: fixed; // Fixed positioning
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000; // High z-index to overlay content
+  }
+
+  .navbar-collapse {
+      background-color: blue;
+      position: fixed; // Fixed positioning
+      top: -100%; // Initially off-screen
+      width: 50%; // Occupying 50% of the screen width
+      right: 0; // Align to the right
+      transition: top 0.3s ease-in-out;
+      z-index: 1001; // Above the navbar
+  }
+
+  .navbar-collapse.show {
+      top: 0; // Slide down into view
+  }
+
+  .nav-item {
+      margin: 0;
+  }
+
+  .nav-link {
+      background-color: transparent;
+      color: white;
+      transition: none;
+  }
+
+  .highlight {
+      display: none;
+  }
 }
